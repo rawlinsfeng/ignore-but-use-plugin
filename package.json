@@ -1,0 +1,32 @@
+{
+  "name": "ignore-but-use-plugin",
+  "version": "0.0.1",
+  "description": "一个webpack插件，用于在编译和打包时需要忽略指定文件，但仍需用到忽略的文件中的某些变量",
+  "main": "src/index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rawlinsfeng/ignore-but-use-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "ignore",
+    "use",
+    "file"
+  ],
+  "author": "rawlinsfeng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rawlinsfeng/ignore-but-use-plugin/issues"
+  },
+  "homepage": "https://github.com/rawlinsfeng/ignore-but-use-plugin#readme",
+  "devDependencies": {
+    "webpack": "^5.61.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.0"
+  }
+}
