@@ -1,2 +1,11 @@
 # Dependency directories
-node_modules/
+node_modules
+
+# config file
+webpack.config.js
+
+# others
+.DS_Store
+.git
+.npmrc
+npm-debug.log

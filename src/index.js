@@ -1,8 +1,10 @@
 
 const IgnoreButUsePlugin = require('./IgnoreButUsePlugin');
-const handleFileLoader = require('./handleFileLoader');
+const loaderPath = function() {
+  return path.resolve(__dirname, 'node_modules/ignore-but-use-plugin/src/handleFileLoader.js');
+};
 
 module.exports = {
   IgnoreButUsePlugin,
-  handleFileLoader
+  loaderPath,
 };
