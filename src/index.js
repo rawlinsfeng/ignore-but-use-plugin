@@ -17,6 +17,7 @@
 const path = require('path');
 const getexportVariables = require('./utils/astFile').getexportVariables;
 const replaceVariable = require('./utils/astFile').replaceVariable;
+const variableNames = require('./utils/astFile').variableNames;
 
 const issuerFiles = [];
 
@@ -89,9 +90,10 @@ class IgnoreButUsePlugin {
 
           Object.keys(assets).forEach(assetKey => {
             let sourceContent = assets[assetKey].source();
-            exportVariableList.forEach(exportVariable => {
-              if (sourceContent.includes(exportVariable.name)) {
-                sourceContent = sourceContent.replace(new RegExp(exportVariable.name, 'i'), `let ${exportVariable.name}`);
+            variableNames.forEach(variableName => {
+              if (sourceContent.includes(variableName.localName)) {
+                // let exportVariableVal = exportVariableList.find(item => item.name == variableName.importedName);
+                sourceContent = sourceContent.replace(new RegExp(variableName.localName, 'i'), `let ${variableName.localName}`);
               }
             })
             assets[assetKey] = new RawSource(sourceContent);
