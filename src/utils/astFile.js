@@ -73,9 +73,36 @@ function replaceVariable(sourceValueCode,optionFile) {
   return realImportVariable;
 }
 
+/**
+ * 用自定义loader更改文件内容
+ * @param {*} source 转换前的源代码
+ * @param {*} option loader的option值，即需要忽略的文件路径
+ * @param {*} value 需要替换的变量的值
+ */
+ function handleSource(source, option, value) {
+  let codeAst = babel.parseSync(source);
+  let realImportVariable = '';
+  traverse(codeAst, {
+    ImportDeclaration(path) {
+      let tempValue = path.node.source.value;
+      let fileName = tempValue.split('/').pop();
+      if (option.includes(fileName)) {
+        realImportVariable = path.node.specifiers[0].local.name;
+        path.remove();
+      }
+    }
+  });
+  let removedSource = generate(codeAst).code;
+  return `
+    var ${realImportVariable} = ${value};
+    ${removedSource}
+  `;
+}
+
 module.exports = {
   getexportVariables,
   replaceVariable,
   handleImportProperty,
   variableNames,
+  handleSource,
 };

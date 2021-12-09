@@ -6,7 +6,7 @@
 
 ### 配置项
 - ignoreButUseFile
-> type: string | value: 指定文件的相对路径 | 支持范围：js和ts文件，支持import重命名的情况
+> type: string  |  value: 指定文件的相对路径  |  支持范围：js和ts文件，支持import重命名的情况
 
 ### 使用示例
 ```js
@@ -35,8 +35,9 @@ module: {
   ]
 }
 plugins: [
-  new IgnoreButUsePlugin({
-    ignoreButUseFile: './test/util.test.js',
-  }),
+  // IgnoreButUsePlugin可用可不用
+  // new IgnoreButUsePlugin({
+  //   ignoreButUseFile: './test/util.test.js',
+  // }),
 ]
 ```

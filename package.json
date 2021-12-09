@@ -1,6 +1,6 @@
 {
   "name": "ignore-but-use-plugin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "自定义webpack插件(内含自定义loader)，用于在编译和打包时需要忽略指定文件，但仍需用到忽略的文件中的某些变量",
   "main": "src/index.js",
   "scripts": {
